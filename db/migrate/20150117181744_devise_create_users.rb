@@ -36,6 +36,10 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :role
       t.string :user_image
 
+      ## Omniauth Stuff
+      t.string :provider
+      t.string :uid
+
       t.timestamps
     end
 
