@@ -1,7 +1,6 @@
 class CommentsController < ApplicationController
   load_and_authorize_resource
   
-
   def create
     commentable = Post.create
     comment = commentable.comments.create
