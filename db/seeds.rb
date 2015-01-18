@@ -18,9 +18,14 @@ facilities << Facility.create!(name: "Couches & Lounge Chairs")
 facilities << Facility.create!(name: "Conference Room")
 facilities << Facility.create!(name: "Meals")
 
-User.create!(first_name: "Ellie", last_name: "McGregor", email: "ellie.mcgregor@gmail.com", password: "password", role: :admin)
-User.create!(first_name: "Daniel", last_name: "Easterman", email: "daniel.easterman@gmail.com", password: "password", role: :admin)
-User.create!(first_name: "Sebastian", last_name: "Riddle", email: "sebastian.riddle@gmail.com", password: "password", role: :admin)
+ellie = User.create!(first_name: "Ellie", last_name: "McGregor", email: "ellie.mcgregor@gmail.com", password: "password", role: :admin)
+ellie.shops.create!(name:"#{Faker::Company.name}", email: "#{Faker::Internet.email}", phone: "#{Faker::PhoneNumber.phone_number}")
+
+daniel = User.create!(first_name: "Daniel", last_name: "Easterman", email: "daniel.easterman@gmail.com", password: "password", role: :admin)
+daniel.shops.create!(name:"#{Faker::Company.name}", email: "#{Faker::Internet.email}", phone: "#{Faker::PhoneNumber.phone_number}")
+
+sebastian = User.create!(first_name: "Sebastian", last_name: "Riddle", email: "sebastian.riddle@gmail.com", password: "password", role: :admin)
+sebastian.shops.create!(name:"#{Faker::Company.name}", email: "#{Faker::Internet.email}", phone: "#{Faker::PhoneNumber.phone_number}")
 
 10.times do
   user = User.create!(first_name: "#{Faker::Name.first_name}", last_name: "#{Faker::Name.last_name}", email: "#{Faker::Internet.email}", password: "password", user_image: "#{Faker::Avatar.image}", role: :normal)
