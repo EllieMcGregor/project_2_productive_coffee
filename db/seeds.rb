@@ -9,12 +9,6 @@
 User.delete_all
 Shop.delete_all
 Facility.delete_all
-Comment.delete_all
-
-Comment.create!(title: "first comment", comment: "wondering if this is working")
-
-Comment.create!(title: "first comment", comment: "wondering if this is working", shop_id: )
-
 
 facilities = []
 facilities << Facility.create!(name: "WiFi")
