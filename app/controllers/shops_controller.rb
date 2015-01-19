@@ -14,6 +14,7 @@ class ShopsController < ApplicationController
 
   def new
     @shop = Shop.new
+    respond_with(@shop)
   end
 
   private
