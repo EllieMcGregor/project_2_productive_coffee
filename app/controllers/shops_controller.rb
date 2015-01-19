@@ -24,6 +24,11 @@ class ShopsController < ApplicationController
     respond_with(@shop)
   end
 
+  def update
+    @shop.update(shop_params)
+    respond_with(@shop)
+  end
+
   private
   def set_shop
     @shop = Shop.find(params[:id])
