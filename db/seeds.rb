@@ -13,6 +13,9 @@ Comment.delete_all
 
 Comment.create!(title: "first comment", comment: "wondering if this is working")
 
+Comment.create!(title: "first comment", comment: "wondering if this is working", shop_id: )
+
+
 facilities = []
 facilities << Facility.create!(name: "WiFi")
 facilities << Facility.create!(name: "Wireless Power")
