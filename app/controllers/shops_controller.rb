@@ -9,6 +9,7 @@ class ShopsController < ApplicationController
   end
 
   def show
+    respond_with(@shop)
   end
 
   def new
