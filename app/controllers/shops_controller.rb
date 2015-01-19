@@ -17,8 +17,19 @@ class ShopsController < ApplicationController
     respond_with(@shop)
   end
 
+  def create
+    @shop = Shop.new(shop_params)
+    @shop.user = current_user
+    @shop.save
+    respond_with(@shop)
+  end
+
   private
   def set_shop
     @shop = Shop.find(params[:id])
+  end
+
+  def shop_params
+    params.require(:shop).permit(:name, :email, :phone, :user_id, :latitude, :longitude, :street, :city, :postcode, :country)
   end
 end
