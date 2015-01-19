@@ -1,6 +1,20 @@
 source 'https://rubygems.org'
 
+gem 'devise'
+gem 'omniauth-google-oauth2'
+
 gem 'acts_as_commentable'
+
+group :development, :test do
+  gem 'faker', '~> 1.4.3'
+  gem 'pry-rails'
+  gem 'pry-byebug'
+  gem 'pry-stack_explorer'
+  gem 'binding_of_caller'
+  gem 'better_errors'
+  gem 'meta_request'
+end
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.8'
 # Use postgresql as the database for Active Record
