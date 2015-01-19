@@ -9,4 +9,11 @@ class Shop < ActiveRecord::Base
   validates :name, presence: true
   validates :email, presence: true
   validates :user, presence: true
+
+  geocoded_by :address
+  reverse_geocoded_by :latitude, :longitude
+  
+  def address
+    [street, city, postcode, country].compact.join(', ')
+  end
 end
