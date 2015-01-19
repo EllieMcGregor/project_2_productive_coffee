@@ -8,6 +8,10 @@ class ShopsController < ApplicationController
   def show
   end
 
+  def new
+    @shop = Shop.new
+  end
+
   private
   def set_shop
     @shop = Shop.find(params[:id])
