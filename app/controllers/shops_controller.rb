@@ -4,6 +4,10 @@ class ShopsController < ApplicationController
   def index
     @shops = Shop.all
   end
+
+  def show
+  end
+
   private
   def set_shop
     @shop = Shop.find(params[:id])
