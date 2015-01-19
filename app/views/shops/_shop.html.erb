@@ -1,0 +1,19 @@
+<div class="shop" style="border-bottom:1px solid black;margin-bottom:150px">
+  <h1><%= shop.name %></h1>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse porta orci et nisl tincidunt varius. Donec elementum lobortis vehicula. Aenean facilisis ante et nulla consequat mattis. Nullam blandit dapibus quam id volutpat. Ut quis placerat erat. Proin ut libero quis dui ultricies egestas in ut augue. Aenean scelerisque pretium adipiscing.</p>
+  <p><strong>Email: </strong><%= shop.email %></p>
+  <p><strong>Phone: </strong><%= shop.phone %></p>
+  <p><strong>Street: </strong><%= shop.street %></p>
+  <p><strong>City: </strong><%= shop.city %></p>
+  <p><strong>Postcode: </strong><%= shop.postcode %></p>
+  <p><strong>Country: </strong><%= shop.country %></p>
+  <p><strong>Latitude: </strong><%= shop.latitude %></p>
+  <p><strong>Longitude: </strong><%= shop.longitude %></p>
+  <img src="https://maps.googleapis.com/maps/api/staticmap?center=<%= shop.latitude %>,<%= shop.longitude %>&zoom=13&size=600x300&maptype=roadmap
+&markers=color:blue%7C<%= shop.latitude %>,<%= shop.longitude %>" alt="">
+  
+  <hr>
+  
+  <h2>Comments <span>(<%= pluralize(shop.comments.count, "comment") %>)</span></h2>
+  <%= render partial: '/comments/comment', collection: shop.comments %>
+</div>
