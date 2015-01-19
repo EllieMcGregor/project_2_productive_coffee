@@ -6,6 +6,9 @@ gem 'omniauth-google-oauth2'
 gem 'acts_as_commentable'
 gem 'geocoder'
 
+gem 'ratyrate'
+
+
 group :development, :test do
   gem 'faker', '~> 1.4.3'
   gem 'pry-rails'
