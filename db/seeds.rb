@@ -37,3 +37,5 @@ sebastian.shops.create!(name:"#{Faker::Company.name}", email: "#{Faker::Internet
   number_of_facilities = rand(1..facilities.count)
   users_shop.facilities << facilities.sample(number_of_facilities)
 end
+
+

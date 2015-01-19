@@ -1,6 +1,5 @@
 class CommentsController < ApplicationController
   load_and_authorize_resource
-  acts_as_commentable
   
   def create
     commentable = Post.create
@@ -8,12 +7,13 @@ class CommentsController < ApplicationController
     comment.title = "First comment."
     comment.comment = "This is the first comment."
     comment.save
+    redirect_to @shop
   end
 
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy
-    redirect_to ...
+    redirect_to(shop_path)
   end
 
   def comment_params

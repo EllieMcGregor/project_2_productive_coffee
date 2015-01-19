@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :shops
+  has_many :comments, through: :shops
 
   validates :first_name, presence: true
   validates :last_name, presence: true
