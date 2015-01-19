@@ -9,6 +9,9 @@
 User.delete_all
 Shop.delete_all
 Facility.delete_all
+Comment.delete_all
+
+Comment.create!(title: "first comment", comment: "wondering if this is working")
 
 facilities = []
 facilities << Facility.create!(name: "WiFi")
@@ -37,3 +40,5 @@ sebastian.shops.create!(name:"#{Faker::Company.name}", email: "#{Faker::Internet
   number_of_facilities = rand(1..facilities.count)
   users_shop.facilities << facilities.sample(number_of_facilities)
 end
+
+
