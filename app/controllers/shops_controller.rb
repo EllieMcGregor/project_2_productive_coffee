@@ -5,6 +5,7 @@ class ShopsController < ApplicationController
 
   def index
     @shops = Shop.all
+    respond_with(@shops)
   end
 
   def show
