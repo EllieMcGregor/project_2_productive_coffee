@@ -1,6 +1,7 @@
 class Shop < ActiveRecord::Base
   
   acts_as_commentable
+  ratyrate_rateable "overall"
 
   belongs_to :user
   has_many :shops_facility, dependent: :destroy

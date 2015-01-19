@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+
+  ratyrate_rater
+
   has_many :shops
   has_many :comments, through: :shops
 
