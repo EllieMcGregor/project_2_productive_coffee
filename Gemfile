@@ -4,6 +4,7 @@ gem 'devise'
 gem 'omniauth-google-oauth2'
 
 gem 'acts_as_commentable'
+gem 'geocoder'
 
 group :development, :test do
   gem 'faker', '~> 1.4.3'
