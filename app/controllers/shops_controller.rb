@@ -1,5 +1,5 @@
 class ShopsController < ApplicationController
-  before_action :set_shop, :clear_search_index, only: [:show, :edit, :update, :destroy]
+  before_action :set_shop, only: [:show, :edit, :update, :destroy]
 
   respond_to :html
 
