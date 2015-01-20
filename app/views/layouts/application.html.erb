@@ -2,8 +2,8 @@
 <html>
 <head>
   <title>ProductiveCoffee</title>
-  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCoO-Gg_S4eXaF4W-sbdAA8jXvE7B2y8Q0"></script>
-  <%= include_gon %>
+  <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=AIzaSyCoO-Gg_S4eXaF4W-sbdAA8jXvE7B2y8Q0" %>
+  <%= javascript_include_tag "//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js" %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
