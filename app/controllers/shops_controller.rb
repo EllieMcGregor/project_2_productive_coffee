@@ -5,8 +5,14 @@ class ShopsController < ApplicationController
 
   def index
     @facilities = Facility.all
+
     @q = Shop.search(params[:q])
     @shops = @q.result(distinct: true).includes(:facilities)
+
+    gon.shop_markers_new = @shops.map do |shop|
+      { position: { lat: shop.latitude, lng: shop.longitude } }
+    end
+
     respond_with(@shops)
   end 
 
