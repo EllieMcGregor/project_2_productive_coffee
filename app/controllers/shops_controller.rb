@@ -15,7 +15,7 @@ class ShopsController < ApplicationController
       @shops = Shop.order(:updated_at).page(params[:page])
     end
     
-    @hash = Gmaps4rails.build_markers(@shops) do |shop, marker|
+    @markers = Gmaps4rails.build_markers(@shops) do |shop, marker|
       marker.infowindow render_to_string(partial: "shop_for_index", locals: { shop: shop})
       marker.picture({
         url: "/assets/coffee.png",
