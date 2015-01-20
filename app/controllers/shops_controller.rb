@@ -15,8 +15,10 @@ class ShopsController < ApplicationController
       @shops = Shop.order(:updated_at).page(params[:page])
     end
     
-    gon.shop_markers = @shops.map do |shop|
-      { position: { lat: shop.latitude, lng: shop.longitude } }
+    @hash = Gmaps4rails.build_markers(@shops) do |shop, marker|
+      marker.infowindow render_to_string(partial: "shop_for_index", locals: { shop: shop})
+      marker.lat shop.latitude
+      marker.lng shop.longitude
     end
 
     if request.xhr?

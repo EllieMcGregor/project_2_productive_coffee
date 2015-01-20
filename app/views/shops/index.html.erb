@@ -26,3 +26,12 @@
   <%= render partial: 'shop_for_index', collection: @shops, as: :shop %>  
 </div>
 <%= paginate @shops %>
+
+<script>
+  handler = Gmaps.build('Google');
+  handler.buildMap({ provider: {}, internal: {id: 'map-canvas'}}, function(){
+    markers = handler.addMarkers(<%= raw @hash.to_json %>);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+  });
+</script>
