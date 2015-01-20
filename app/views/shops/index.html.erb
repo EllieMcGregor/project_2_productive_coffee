@@ -1,2 +1,13 @@
 <h1>Shops#index</h1>
+
+<%= search_form_for @q do |f| %>
+<p>
+  <%= f.text_field :name %>
+</p>
+
+<p>
+  <%= f.submit %>  
+</p>
+<% end %>
+
 <%= render @shops %>

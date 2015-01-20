@@ -5,9 +5,9 @@ class ShopsController < ApplicationController
 
   def index
     @shops = Shop.all
-    respond_with(@shops)
     @q = Shop.search(params[:q])
     @shops = @q.result(distinct: true)
+    respond_with(@shops)
   end
 
   def show
