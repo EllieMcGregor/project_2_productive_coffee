@@ -1,5 +1,7 @@
 <h1>Shops#index</h1>
 
+<div id="map-canvas"></div>
+
 <%= link_to 'Back', shops_path  %>
 
 <%= search_form_for @q, remote: true do |f| %>
@@ -21,3 +23,4 @@
 <div id="shops_list">
   <%= render partial: 'shop_for_index', collection: @shops, as: :shop %>  
 </div>
+<%= paginate @shops %>
