@@ -6,7 +6,11 @@ class ShopsController < ApplicationController
   def index
     @facilities = Facility.all
     @q = Shop.search(params[:q])
-    @shops = @q.result(distinct: true).includes(:facilities)
+    if params[:q]
+      @shops = @q.result(distinct: true).includes(:facilities).page(params[:page])
+    else
+      @shops = Shop.order(:updated_at).page(params[:page])
+    end
     respond_with(@shops)
   end 
 

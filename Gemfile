@@ -9,6 +9,7 @@ gem 'geocoder'
 gem 'ratyrate'
 
 gem 'ransack'
+gem 'kaminari'
 
 group :development, :test do
   gem 'faker', '~> 1.4.3'
