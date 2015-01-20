@@ -12,6 +12,10 @@ gem 'ratyrate'
 gem 'ransack'
 gem 'kaminari'
 
+gem 'jquery-turbolinks'
+
+gem 'gmaps4rails'
+
 group :development, :test do
   gem 'faker', '~> 1.4.3'
   gem 'pry-rails'
