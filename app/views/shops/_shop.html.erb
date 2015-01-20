@@ -1,7 +1,7 @@
 <div class="shop" style="border-bottom:1px solid black;margin-bottom:150px">
   <div><%= rating_for shop, "overall" %></div>
   <h1><%= link_to shop.name, shop_path(shop) %></h1>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse porta orci et nisl tincidunt varius. Donec elementum lobortis vehicula. Aenean facilisis ante et nulla consequat mattis. Nullam blandit dapibus quam id volutpat. Ut quis placerat erat. Proin ut libero quis dui ultricies egestas in ut augue. Aenean scelerisque pretium adipiscing.</p>
+  <p><%= shop.description %></p>
   <p><strong>Email: </strong><%= shop.email %></p>
   <p><strong>Phone: </strong><%= shop.phone %></p>
   <p><strong>Street: </strong><%= shop.street %></p>
