@@ -16,5 +16,20 @@
   <hr>
   
   <h2>Comments <span>(<%= pluralize(shop.comments.count, "comment") %>)</span></h2>
+  <h4>Write a Comment:</h4>
+  <%= form_for([shop, Comment.new]) do |f| %>
+  <%= render partial: '/comments/form', locals: { f: f } %>
+  <% end %>
   <%= render partial: '/comments/comment', collection: shop.comments %>
 </div>
+
+<%= link_to 'Back to Shops', shops_path %>
+
+
+
+
+
+
+
+
+
