@@ -17,6 +17,11 @@ class ShopsController < ApplicationController
     
     @hash = Gmaps4rails.build_markers(@shops) do |shop, marker|
       marker.infowindow render_to_string(partial: "shop_for_index", locals: { shop: shop})
+      marker.picture({
+        url: "/assets/coffee.png",
+        width: 32,
+        height: 38
+      })
       marker.lat shop.latitude
       marker.lng shop.longitude
     end
