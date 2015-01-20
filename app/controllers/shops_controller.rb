@@ -1,5 +1,5 @@
 class ShopsController < ApplicationController
-  before_action :set_shop, only: [:show, :edit, :update, :destroy]
+  before_action :set_shop, :clear_search_index, only: [:show, :edit, :update, :destroy]
 
   respond_to :html
 
@@ -8,6 +8,17 @@ class ShopsController < ApplicationController
     @q = Shop.search(params[:q])
     @shops = @q.result(distinct: true)
     respond_with(@shops)
+  end
+
+  def clear_search_index
+    if params[:search_cancel]
+        params.delete(:search_cancel)
+        if(!search_params.nil?)
+          search_params.each do |key, param|
+            search_params[key] = nil
+          end
+        end
+      end
   end
 
   def show
