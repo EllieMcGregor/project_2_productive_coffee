@@ -4,10 +4,12 @@ class ShopsController < ApplicationController
   respond_to :html
 
   def index
+  
     @facilities = Facility.all
     @q = Shop.search(params[:q])
     @shops = @q.result(distinct: true).includes(:facilities)
     respond_with(@shops)
+    render @shops, layout: false if request.xhr?
   end 
 
   def show
