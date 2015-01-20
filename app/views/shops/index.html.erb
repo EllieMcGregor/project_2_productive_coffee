@@ -7,10 +7,12 @@
 <%= search_form_for @q, remote: true do |f| %>
 <p>
   <%= f.text_field :name_cont %>
-  <% @facilities.each do |facility| %>
-    <%= check_box_tag('q[facilities_id_eq_any][]', facility.id, params[:q]&&params[:q][:facilities_id_eq_any]&&params[:q][:facilities_id_eq_any].include?(facility.id.to_s) ) %>
-    <%= facility.name %>
-  <% end %>
+  <div id="facilities">
+    <% @facilities.each do |facility| %>
+      <%= check_box_tag('q[facilities_id_eq_any][]', facility.id, params[:q] && params[:q][:facilities_id_eq_any] && params[:q][:facilities_id_eq_any].include?(facility.id.to_s) ) %>
+      <%= facility.name %>
+    <% end %>
+  </div>
 </p>
 
 
