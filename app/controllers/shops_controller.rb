@@ -7,6 +7,7 @@ class ShopsController < ApplicationController
     @facilities = Facility.all
     @q = Shop.search(params[:q])
     @shops = @q.result(distinct: true).includes(:facilities)
+    @shops = Shop.order(:updated_at).page(params[:page])
     respond_with(@shops)
   end 
 
