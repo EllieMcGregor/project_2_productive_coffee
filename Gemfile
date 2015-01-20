@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'devise'
+gem 'cancancan'
 gem 'omniauth-google-oauth2'
 
 gem 'acts_as_commentable'
