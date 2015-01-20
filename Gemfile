@@ -10,6 +10,7 @@ gem 'gon'
 
 gem 'ratyrate'
 
+gem 'ransack'
 
 group :development, :test do
   gem 'faker', '~> 1.4.3'
