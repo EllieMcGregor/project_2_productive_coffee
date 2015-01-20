@@ -2,7 +2,7 @@
 
 <%= link_to 'Back', shops_path  %>
 
-<%= search_form_for @q do |f| %>
+<%= search_form_for @q, remote: true do |f| %>
 <p>
   <%= f.text_field :name_cont %>
   <% @facilities.each do |facility| %>
@@ -11,15 +11,13 @@
   <% end %>
 </p>
 
+
+
 <p>
   <%= f.submit %>  
 </p>
 <% end %>
 
-<% @shops.each do |shop| %>
-
-<h1><%= link_to shop.name, shop_path(shop) %></h1>
-
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse porta orci et nisl tincidunt varius. Donec elementum lobortis vehicula. Aenean facilisis ante et nulla consequat mattis. Nullam blandit dapibus quam id volutpat. Ut quis placerat erat. Proin ut libero quis dui ultricies egestas in ut augue. Aenean scelerisque pretium adipiscing.</p>
-
-<% end %>
+<div id="shops_list">
+  <%= render partial: 'shop_for_index', collection: @shops, as: :shop %>  
+</div>

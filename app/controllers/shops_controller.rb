@@ -8,9 +8,12 @@ class ShopsController < ApplicationController
     @facilities = Facility.all
     @q = Shop.search(params[:q])
     @shops = @q.result(distinct: true).includes(:facilities)
-    respond_with(@shops)
-    render @shops, layout: false if request.xhr?
-  end 
+    if request.xhr?
+      render partial: 'shop_for_index', collection: @shops, as: :shop
+    else
+      respond_with(@shops)
+  end
+end 
 
   def show
     respond_with(@shop)

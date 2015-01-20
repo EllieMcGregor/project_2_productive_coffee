@@ -16,16 +16,15 @@
 //= require_tree .
 
 $(function(){
-  $('#search_form').
+  $('#shop_search').
     on('ajax:success', function(event, data, status, xhr) {
-      // console.log('success: ', data);
       $('#shops_list').html(data);
     }).
     on('ajax:error', function(xhr, status, error) {
        console.log('error! : ', error);
     });
 
-    $('#search').on('keyup', function(){
-      $('#search_form').submit();
+    $('#q_name_cont').on('keyup', function(){
+      $('#shop_search').submit();
     })
 });
