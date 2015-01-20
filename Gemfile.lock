@@ -67,7 +67,6 @@ GEM
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
     geocoder (1.2.6)
-    gmaps4rails (2.1.2)
     gon (5.2.3)
       actionpack (>= 2.3.0)
       json
@@ -206,7 +205,6 @@ DEPENDENCIES
   devise
   faker (~> 1.4.3)
   geocoder
-  gmaps4rails
   gon
   jbuilder (~> 2.0)
   jquery-rails
