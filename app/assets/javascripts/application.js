@@ -42,7 +42,7 @@ myMap.initialize = function(){
 
   myMap.map = new google.maps.Map(myMap.mapElement);
 
-  var shop_markers = gon.shop_markers_new;
+  var shop_markers = gon.shop_markers;
   shop_markers.forEach(function(element, index, array){
     var shop_marker = element.position;
     point = new google.maps.LatLng(shop_marker.lat, shop_marker.lng);
