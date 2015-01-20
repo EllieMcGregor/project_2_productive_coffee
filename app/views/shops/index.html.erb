@@ -1,5 +1,21 @@
 <h1>Shops#index</h1>
 
+<%= link_to 'Back', shops_path  %>
+
+<%= search_form_for @q do |f| %>
+<p>
+  <%= f.text_field :name_cont %>
+  <% @facilities.each do |facility| %>
+    <%= check_box_tag('q[facilities_id_eq_any][]', facility.id, params[:q]&&params[:q][:facilities_id_eq_any]&&params[:q][:facilities_id_eq_any].include?(facility.id.to_s) ) %>
+    <%= facility.name %>
+  <% end %>
+</p>
+
+<p>
+  <%= f.submit %>  
+</p>
+<% end %>
+
 <% @shops.each do |shop| %>
 
 <h1><%= link_to shop.name, shop_path(shop) %></h1>
@@ -7,5 +23,3 @@
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse porta orci et nisl tincidunt varius. Donec elementum lobortis vehicula. Aenean facilisis ante et nulla consequat mattis. Nullam blandit dapibus quam id volutpat. Ut quis placerat erat. Proin ut libero quis dui ultricies egestas in ut augue. Aenean scelerisque pretium adipiscing.</p>
 
 <% end %>
-
-  

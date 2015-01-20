@@ -4,9 +4,11 @@ class ShopsController < ApplicationController
   respond_to :html
 
   def index
-    @shops = Shop.all
+    @facilities = Facility.all
+    @q = Shop.search(params[:q])
+    @shops = @q.result(distinct: true).includes(:facilities)
     respond_with(@shops)
-  end
+  end 
 
   def show
     respond_with(@shop)
