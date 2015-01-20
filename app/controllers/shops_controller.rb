@@ -17,6 +17,9 @@ class ShopsController < ApplicationController
     respond_with(@shop)
   end
 
+  def edit
+  end
+
   def create
     @shop = Shop.new(shop_params)
     @shop.user = current_user
