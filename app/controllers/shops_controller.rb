@@ -1,7 +1,12 @@
 class ShopsController < ApplicationController
+
+  before_action :authenticate_user!
+
   before_action :set_shop, only: [:show, :edit, :update, :destroy]
 
   respond_to :html
+
+  load_and_authorize_resource
 
   def index
   
