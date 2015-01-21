@@ -1,7 +1,4 @@
 <div id="map">
-  <div id="map-canvas"></div>
-</div>
-<div id="results">
   <div class="search-tools">
     <%= search_form_for @q, remote: true do |f| %>
       <div class="filter">
@@ -28,7 +25,10 @@
       </div>
     <% end %>
   </div>
+  <div id="map-canvas"></div>
+</div>
 
+<div id="results">
   <div id="shops_list">
     <%= render partial: 'shop_list' %>
   </div>
