@@ -3,24 +3,33 @@
 </div>
 <div id="results">
   <%= link_to 'Back', shops_path  %>
-
-  <%= search_form_for @q, remote: true do |f| %>
-  <p>
-    <%= f.text_field :name_cont %>
-    <div id="facilities">
-      <% @facilities.each do |facility| %>
-        <%= check_box_tag('q[facilities_id_eq_any][]', facility.id, params[:q] && params[:q][:facilities_id_eq_any] && params[:q][:facilities_id_eq_any].include?(facility.id.to_s) ) %>
-        <%= facility.name %>
-      <% end %>
-    </div>
-  </p>
-
-
-
-  <p>
-    <%= f.submit %>  
-  </p>
-  <% end %>
+  
+  <div class="search-tools">
+    <%= search_form_for @q, remote: true do |f| %>
+      <div class="filter">
+        <label>Shop Name</label>
+        <div>
+          <%= f.text_field :name_cont %>
+        </div>
+      </div>
+      <div class="filter">
+        <label>Facilities</label>
+        <div id="facilities">
+          <ol>
+            <% @facilities.each do |facility| %>
+              <li>
+                <%= check_box_tag('q[facilities_id_eq_any][]', facility.id, params[:q] && params[:q][:facilities_id_eq_any] && params[:q][:facilities_id_eq_any].include?(facility.id.to_s) ) %>
+                <%= label_tag facility.name %>
+              </li>
+            <% end %>
+          </ol>
+        </div>
+      </div>
+      <div class="trigger">
+        <%= f.submit %>
+      </div>
+    <% end %>
+  </div>
 
   <%= link_to 'Add New Shop', new_shop_path %>
 
