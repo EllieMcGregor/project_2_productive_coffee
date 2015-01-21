@@ -21,6 +21,7 @@ Shop.delete_all
 Facility.delete_all
 ShopsFacility.delete_all
 Comment.delete_all
+Rate.delete_all
 
 facilities = []
 facilities << Facility.create!(name: "WiFi", remote_facility_image_url: "http://www.v3.co.uk/IMG/174/282174/wifi1.jpg")
@@ -57,4 +58,30 @@ shops.each do |shop|
   number_of_facilities = rand(1..facilities.count)
   shop.facilities << facilities.sample(number_of_facilities)
 
+  number_of_ratings = rand(0..100)
+  number_of_ratings.times do
+    stars = rand(1..5)
+    user = users.sample
+    dimension = "overall"
+    rating = Rate.create!(stars: stars, rater: user, dimension: dimension)
+    # .rate params[:score].to_f, current_user, params[:dimension]
+    shop.rates << rating
+    
+    # OverallAverage.create!(avg: stars, qty: 1, dimension: dimension)
+    # shop.rate(stars.to_f, user, dimension)
+    # rating.update_rate_average(stars, dimension)
+    # shop.rates.create_overall_average!(avg: stars, qty: 1, dimension: dimension)
+
+    # a = average(dimension)
+    #       a.qty = rates(dimension).count
+    #       a.avg = rates(dimension).average(:stars)
+    #       a.save!(validate: false)
+
+
+    # overall_average = shop.overall_average
+    # overall_rates = shop.overall_rates
+    #   overall_average.qty = overall_rates.count
+    #   overall_average.avg = overall_rates.average(:stars)
+    #   overall_average.save!(validate: false)
+  end
 end
