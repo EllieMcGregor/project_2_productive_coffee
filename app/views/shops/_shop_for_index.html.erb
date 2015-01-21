@@ -1,4 +1,6 @@
-<h1><%= link_to shop.name, shop_path(shop) %></h1>
-<p><div><%= rating_for shop, "overall" %></div></p>
-<p><%= image_tag(shop.shop_image.thumb.url)%></p>
-<p><%= shop.description %></p>
+<article class="type-system-sans">
+  <h1><%= link_to shop.name, shop_path(shop) %></h1>
+  <p><div><%= rating_for shop, "overall" %></div></p>
+  <p><%= image_tag(shop.shop_image.thumb.url)%></p>
+  <p><%= shop.description %></p>
+</article>
