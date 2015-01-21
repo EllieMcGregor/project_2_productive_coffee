@@ -585,7 +585,7 @@
      margin-bottom: 1em;
 
      @include media($large-screen) {
-       @include span-columns(5);
+       @include span-columns(4);
        margin-bottom: 0;
      }
 
@@ -640,7 +640,7 @@
      width: 100%;
 
      @include media($large-screen) {
-       @include span-columns(1.5);
+       @include span-columns(2);
      }
 
      button {
