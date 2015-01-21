@@ -1,29 +1,32 @@
-<div id="map-canvas"></div>
+<div id="map">
+  <div id="map-canvas"></div>
+</div>
+<div id="results">
+  <%= link_to 'Back', shops_path  %>
 
-<%= link_to 'Back', shops_path  %>
+  <%= search_form_for @q, remote: true do |f| %>
+  <p>
+    <%= f.text_field :name_cont %>
+    <div id="facilities">
+      <% @facilities.each do |facility| %>
+        <%= check_box_tag('q[facilities_id_eq_any][]', facility.id, params[:q] && params[:q][:facilities_id_eq_any] && params[:q][:facilities_id_eq_any].include?(facility.id.to_s) ) %>
+        <%= facility.name %>
+      <% end %>
+    </div>
+  </p>
 
-<%= search_form_for @q, remote: true do |f| %>
-<p>
-  <%= f.text_field :name_cont %>
-  <div id="facilities">
-    <% @facilities.each do |facility| %>
-      <%= check_box_tag('q[facilities_id_eq_any][]', facility.id, params[:q] && params[:q][:facilities_id_eq_any] && params[:q][:facilities_id_eq_any].include?(facility.id.to_s) ) %>
-      <%= facility.name %>
-    <% end %>
+
+
+  <p>
+    <%= f.submit %>  
+  </p>
+  <% end %>
+
+  <%= link_to 'Add New Shop', new_shop_path %>
+
+  <div id="shops_list">
+    <%= render partial: 'shop_list' %>
   </div>
-</p>
-
-
-
-<p>
-  <%= f.submit %>  
-</p>
-<% end %>
-
-<%= link_to 'Add New Shop', new_shop_path %>
-
-<div id="shops_list">
-  <%= render partial: 'shop_list' %>
 </div>
 
 <script>

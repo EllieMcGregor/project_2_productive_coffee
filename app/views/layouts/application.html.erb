@@ -11,17 +11,20 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <main>
-    <%= render partial: "layouts/menu" %>
-      
-
-  </main>
-  <div class="flash">
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-  </div>
   
-  <%= yield %>
+  <%= render partial: "layouts/menu" %>
+  <main>
+    <div class="flash">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+    </div>
+    <%= yield %>
+  </main>    
+
+  
+  
+  
+  
 
 </body>
 </html>

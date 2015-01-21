@@ -1,3 +1,23 @@
+body {
+  main {
+    @include outer-container;
+    $mobile: new-breakpoint(max-width 500px 4);
+    #map {
+      @include span-columns(6);
+      @include media($mobile) {
+        @include span-columns(3);
+      }
+    }
+    #results {
+      @include span-columns(6);
+      @include media($mobile) {
+        @include span-columns(3);
+      }
+      @include omega();
+    }
+  }
+}
+
 header {
   .login {
     .avatar {
@@ -10,9 +30,8 @@ header {
   }
 }
 
-#map-canvas {
-  width: 800px; 
-  height: 400px;
+#map-canvas { 
+  height: 500px;
   .gm-style-iw {
     width:250px !important;
     height:auto !important;
