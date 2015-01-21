@@ -20,6 +20,8 @@
 </p>
 <% end %>
 
+<%= link_to 'Add New Shop', new_shop_path %>
+
 <div id="shops_list">
   <%= render partial: 'shop_for_index', collection: @shops, as: :shop %>  
 </div>
