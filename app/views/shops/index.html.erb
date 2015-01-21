@@ -2,8 +2,6 @@
   <div id="map-canvas"></div>
 </div>
 <div id="results">
-  <%= link_to 'Back', shops_path  %>
-  
   <div class="search-tools">
     <%= search_form_for @q, remote: true do |f| %>
       <div class="filter">
@@ -30,8 +28,6 @@
       </div>
     <% end %>
   </div>
-
-  <%= link_to 'Add New Shop', new_shop_path %>
 
   <div id="shops_list">
     <%= render partial: 'shop_list' %>
