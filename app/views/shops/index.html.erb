@@ -33,15 +33,19 @@
 
     var handler = Gmaps.build('Google');
     handler.buildMap({ provider: {}, internal: {id: 'map-canvas'}}, function(){
-      markers = handler.addMarkers(markers_json);
-      handler.bounds.extendWith(markers);
-      handler.fitMapToBounds();
+      display_markers(markers_json);
 
       $('#shop_search').on('ajax:success', function(event, data, status, xhr) {
         handler.removeMarkers(markers);
-        markers = handler.addMarkers(data.markers);
-        handler.fitMapToBounds();
+        display_markers(data.markers);
       });
     });
+
+    function display_markers(marker_data){
+      markers = handler.addMarkers(marker_data);
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+    }
+
   });
 </script>
