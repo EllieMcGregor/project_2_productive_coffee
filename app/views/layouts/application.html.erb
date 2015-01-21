@@ -11,22 +11,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  
+  <main>
+    <%= render partial: "layouts/menu" %>
+      
+
+  </main>
   <div class="flash">
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-  </div>
-
-  <div class='login'>
-    <% if current_user %>
-      <%= current_user.email %>
-      <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-    <% else %>
-      <%= link_to "Sign In", new_user_session_path %>
-      <%= link_to "Register", new_user_registration_path %>
-      or
-      <%= link_to "Sign in with Google", user_omniauth_authorize_path(:google_oauth2) %>
-    <% end %>
   </div>
   
   <%= yield %>
