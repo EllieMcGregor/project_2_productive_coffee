@@ -21,18 +21,17 @@
 $(function(){
   $('#shop_search').
     on('ajax:success', function(event, data, status, xhr) {
-      $('#shops_list').html(data);
-      
+      $('#shops_list').html(data.shops_list);
     }).
     on('ajax:error', function(xhr, status, error) {
        console.log('error! : ', error);
     });
 
-    $('#q_name_cont').on('keyup', function(){
-      $('#shop_search').submit();
-    });
+  $('#q_name_cont').on('keyup', function(){
+    $('#shop_search').submit();
+  });
 
-    $('#facilities input').on('click', function(){
-      $('#shop_search').submit();
-    });
+  $('#facilities input').on('click', function(){
+    $('#shop_search').submit();
+  });
 });
