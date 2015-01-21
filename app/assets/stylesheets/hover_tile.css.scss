@@ -1,0 +1,128 @@
+.hover-tile-outer {
+  ///////////////////////////////////////////////////////////////////////////////////
+  $base-border-color: gainsboro !default;
+  $base-line-height: 1.5em !default;
+  $medium-screen: em(640) !default;
+  
+  h4 {
+    margin: 0;
+  }
+
+  p {
+    line-height: $base-line-height;
+  }
+  //////////////////////////////////////////////////////////////////////////////////
+
+  $hover-tile-height: 260px;
+
+  background: url("https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains.png");
+  background-position: top;
+  background-size: cover;
+  background-color: beige;
+  border: 1px solid $base-border-color;
+  cursor: pointer;
+  height: $hover-tile-height;
+  margin-bottom: $base-line-height;
+  margin-bottom: 30px;
+  
+  @include media($medium-screen) {
+    width: 100%;
+  }
+
+  .hover-tile-container {
+    height: $hover-tile-height;
+    overflow: hidden;
+  }
+
+  .hover-tile-container:hover > .hover-tile {
+    @include transform(translate(0, -62%));
+  }
+
+  .hover-tile {
+    @include transition(all, 0.2s ease-in-out);
+    background: inherit;
+    color: white;
+    height: inherit;
+    overflow: hidden;
+    padding: $base-spacing;
+  }
+
+  .hover-tile-hidden {
+    background: transparentize(#FFF, 0.5);
+    margin-top: -50px;
+    padding-top: 10px;
+    p {
+      color: transparentize(#fff, 0.3);
+    }
+
+    h4 {
+      margin-bottom: 0.5em;
+    }
+
+    .star {
+      display: inline-block;
+      float: right;
+    }
+  }
+}
+
+
+
+// h5 {
+//   color:white;
+//   font-size:15px; 
+// }
+
+// .type-system-sans {
+//     position: relative;
+//     overflow: hidden;
+//     margin-bottom: 30px;
+//     margin-top: 10px;
+//     margin-right: 15px;
+// }
+// .caption__media {
+//     display: block;
+//     min-width: 100%;
+//     max-width: 100%;
+//     height: auto;
+// }
+// .caption__overlay {
+//     position: absolute;
+//     top: 0;
+//     right: 0;
+//     bottom: 0;
+//     left: 0;
+//     padding: 5px;
+//     color: white;
+//     transform: translateY(100%);
+//     transition: transform .35s ease-out;
+// }
+// .type-system-sans:hover .caption__overlay {
+//     transform: translateY(0);
+// }
+// .caption__overlay__title {
+//     margin: 0;
+//     padding: 0 0 12px;
+//     transform: translateY( calc(-100% - 10px) ); /* +10px overlay padding */
+//     transition: transform .35s ease-out;
+// }
+// .type-system-sans:hover .caption__overlay__title {
+//     transform: translateY(0);
+// }
+
+// .type-system-sans::before {
+//     content: ' ';
+//     position: absolute;
+//     top: 0;
+//     right: 0;
+//     bottom: 0;
+//     left: 0;
+//     background: transparent;
+//     transition: background .35s ease-out;
+// }
+// .type-system-sans:hover::before {
+//     background: rgba(0, 0, 0, .5);
+// }
+// .type-system-sans {
+//     transform: translateZ(0);
+// }
