@@ -13,8 +13,8 @@
           <ol>
             <% @facilities.each do |facility| %>
               <li>
-                <%= check_box_tag('q[facilities_id_eq_any][]', facility.id, params[:q] && params[:q][:facilities_id_eq_any] && params[:q][:facilities_id_eq_any].include?(facility.id.to_s) ) %>
-                <%= label_tag facility.name %>
+                <%= check_box_tag('q[facilities_id_eq_any][]', facility.id, params[:q] && params[:q][:facilities_id_eq_any] && params[:q][:facilities_id_eq_any].include?(facility.id.to_s), id: "#{facility.name.gsub(" ", "_")}" ) %>
+                <%= label_tag facility.name, facility.name %>
               </li>
             <% end %>
           </ol>
