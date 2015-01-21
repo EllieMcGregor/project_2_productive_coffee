@@ -1,5 +1,5 @@
 class Shop < ActiveRecord::Base
-  
+  mount_uploader :shop_image, ShopImageUploader
   acts_as_commentable
   ratyrate_rateable "overall"
 
