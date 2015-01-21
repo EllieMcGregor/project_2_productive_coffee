@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'devise'
 gem 'omniauth-google-oauth2'
-
+gem 'carrierwave', '0.9.0'
 gem 'acts_as_commentable'
 gem 'geocoder'
 gem 'gon'
