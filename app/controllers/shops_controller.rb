@@ -18,7 +18,7 @@ class ShopsController < ApplicationController
     @markers = markers_for_gmaps(@shops)
     
     if request.xhr?
-      shops_list = render_to_string partial: 'shop_for_index', collection: @shops, as: :shop
+      shops_list = render_to_string partial: 'shop_list'
       render json: { shops_list: shops_list, markers: @markers }
     else
       respond_with(@shops)

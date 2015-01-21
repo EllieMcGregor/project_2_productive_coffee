@@ -23,9 +23,8 @@
 <% end %>
 
 <div id="shops_list">
-  <%= render partial: 'shop_for_index', collection: @shops, as: :shop %>  
+  <%= render partial: 'shop_list' %>
 </div>
-<%= paginate @shops %>
 
 <script>
   $(function(){
