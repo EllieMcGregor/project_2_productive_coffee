@@ -1,1 +1,5 @@
+<h3><%= link_to 'Edit', edit_shop_path if can? :edit, @shop %></h3>
+
+<h3><%= link_to 'Delete', @shop, method: :delete, data: { confirm: 'Are you sure?' } if can?(:destroy, @shop) %></h3>
+
 <%= render @shop %>

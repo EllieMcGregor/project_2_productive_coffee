@@ -7,10 +7,12 @@
 <%= search_form_for @q, remote: true do |f| %>
 <p>
   <%= f.text_field :name_cont %>
-  <% @facilities.each do |facility| %>
-    <%= check_box_tag('q[facilities_id_eq_any][]', facility.id, params[:q]&&params[:q][:facilities_id_eq_any]&&params[:q][:facilities_id_eq_any].include?(facility.id.to_s) ) %>
-    <%= facility.name %>
-  <% end %>
+  <div id="facilities">
+    <% @facilities.each do |facility| %>
+      <%= check_box_tag('q[facilities_id_eq_any][]', facility.id, params[:q] && params[:q][:facilities_id_eq_any] && params[:q][:facilities_id_eq_any].include?(facility.id.to_s) ) %>
+      <%= facility.name %>
+    <% end %>
+  </div>
 </p>
 
 
@@ -20,7 +22,31 @@
 </p>
 <% end %>
 
+<%= link_to 'Add New Shop', new_shop_path %>
+
 <div id="shops_list">
-  <%= render partial: 'shop_for_index', collection: @shops, as: :shop %>  
+  <%= render partial: 'shop_list' %>
 </div>
-<%= paginate @shops %>
+
+<script>
+  $(function(){
+    var markers_json = <%= raw @markers.to_json %>;
+
+    var handler = Gmaps.build('Google');
+    handler.buildMap({ provider: {}, internal: {id: 'map-canvas'}}, function(){
+      display_markers(markers_json);
+
+      $('#shop_search').on('ajax:success', function(event, data, status, xhr) {
+        handler.removeMarkers(markers);
+        display_markers(data.markers);
+      });
+    });
+
+    function display_markers(marker_data){
+      markers = handler.addMarkers(marker_data);
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+    }
+
+  });
+</script>

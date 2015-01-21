@@ -16,6 +16,10 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:google_oauth2]
 
+    def role?(role_to_compare)
+      self.role.to_s == role_to_compare.to_s
+    end
+
   def self.from_omniauth(auth)
     if user = User.find_by_email(auth.info.email)
       user.provider = auth.provider
