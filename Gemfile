@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+gem 'rmagick'
 gem 'devise'
 gem 'omniauth-google-oauth2'
 gem 'carrierwave', '0.9.0'

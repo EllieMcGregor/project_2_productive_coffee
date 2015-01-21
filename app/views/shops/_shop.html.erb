@@ -10,7 +10,8 @@
   <p><strong>Country: </strong><%= shop.country %></p>
   <p><strong>Latitude: </strong><%= shop.latitude %></p>
   <p><strong>Longitude: </strong><%= shop.longitude %></p>
-  <p class="coffee-img"><strong>Image: </strong><%= image_tag @shop.shop_image.url %></p>
+  <p><strong>Image: </strong><%= link_to image_tag(@shop.shop_image.thumb.url), @shop.shop_image.detail.url %></p>
+
 
   <img src="https://maps.googleapis.com/maps/api/staticmap?center=<%= shop.latitude %>,<%= shop.longitude %>&zoom=13&size=600x300&maptype=roadmap
 &markers=color:blue%7C<%= shop.latitude %>,<%= shop.longitude %>" alt="">
