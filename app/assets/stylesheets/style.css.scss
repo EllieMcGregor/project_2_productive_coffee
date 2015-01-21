@@ -1,4 +1,18 @@
 body {
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    .login {
+      .avatar {
+        width: 50px;
+        border-radius: 100%
+      }
+      .welcome {
+        color: white
+      }
+    }
+  }
   main {
     @include outer-container;
     $mobile: new-breakpoint(max-width 500px 4);
@@ -18,17 +32,6 @@ body {
   }
 }
 
-header {
-  .login {
-    .avatar {
-      width: 50px;
-      border-radius: 100%
-    }
-    .welcome {
-      color: white
-    }
-  }
-}
 
 #map-canvas { 
   height: 500px;
