@@ -4,7 +4,7 @@ class ShopsController < ApplicationController
   respond_to :html
 
   def index
-  
+    # binding.pry
     @facilities = Facility.all
 
     @q = Shop.search(params[:q])
@@ -61,6 +61,6 @@ class ShopsController < ApplicationController
   end
 
   def shop_params
-    params.require(:shop).permit(:name, :email, :phone, :user_id, :latitude, :longitude, :street, :city, :postcode, :country, :shop_image, :remote_shop_image_url )
+    params.require(:shop).permit(:name, :email, :phone, :user_id, :latitude, :longitude, :street, :city, :postcode, :country, :shop_image, :remote_shop_image_url)
   end
 end

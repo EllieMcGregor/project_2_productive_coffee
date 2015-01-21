@@ -62,8 +62,18 @@
   </div>
 
   <div class="field">
-  <%= f.label :remote_shop_image_url %><br />
-  <%= f.text_field :remote_shop_image_url %>
+      <%= f.label :remote_shop_image_url %><br />
+      <%= f.text_field :remote_shop_image_url %>
+  </div>
+
+  <div class="field">
+      <%= f.label :facility_image %><br />
+      <%= f.file_field :facility_image %>
+  </div>
+
+  <div class="field">
+      <%= f.label :remote_facility_image_url %><br />
+      <%= f.file_field :remote_facility_image_url %>
   </div>
 
   <div class="actions">
