@@ -30,6 +30,11 @@ header {
   }
 }
 
+h5 {
+  color:white;
+  font-size:15px; 
+}
+
 #map-canvas { 
   height: 500px;
   .gm-style-iw {
@@ -37,9 +42,13 @@ header {
     height:auto !important;
   }
 }
+
 .type-system-sans {
     position: relative;
     overflow: hidden;
+    margin-bottom: 30px;
+    margin-top: 10px;
+    margin-right: 15px;
 }
 .caption__media {
     display: block;
@@ -53,7 +62,7 @@ header {
     right: 0;
     bottom: 0;
     left: 0;
-    padding: 10px;
+    padding: 5px;
     color: white;
     transform: translateY(100%);
     transition: transform .35s ease-out;
@@ -87,3 +96,4 @@ header {
 .type-system-sans {
     transform: translateZ(0);
 }
+
