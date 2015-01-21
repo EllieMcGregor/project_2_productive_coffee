@@ -23,15 +23,28 @@
 <% end %>
 
 <div id="shops_list">
-  <%= render partial: 'shop_for_index', collection: @shops, as: :shop %>  
+  <%= render partial: 'shop_list' %>
 </div>
-<%= paginate @shops %>
 
 <script>
-  handler = Gmaps.build('Google');
-  handler.buildMap({ provider: {}, internal: {id: 'map-canvas'}}, function(){
-    markers = handler.addMarkers(<%= raw @markers.to_json %>);
-    handler.bounds.extendWith(markers);
-    handler.fitMapToBounds();
+  $(function(){
+    var markers_json = <%= raw @markers.to_json %>;
+
+    var handler = Gmaps.build('Google');
+    handler.buildMap({ provider: {}, internal: {id: 'map-canvas'}}, function(){
+      display_markers(markers_json);
+
+      $('#shop_search').on('ajax:success', function(event, data, status, xhr) {
+        handler.removeMarkers(markers);
+        display_markers(data.markers);
+      });
+    });
+
+    function display_markers(marker_data){
+      markers = handler.addMarkers(marker_data);
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+    }
+
   });
 </script>

@@ -15,19 +15,11 @@ class ShopsController < ApplicationController
       @shops = Shop.order(:updated_at).page(params[:page])
     end
     
-    @markers = Gmaps4rails.build_markers(@shops) do |shop, marker|
-      marker.infowindow render_to_string(partial: "shop_for_index", locals: { shop: shop})
-      marker.picture({
-        url: "/assets/coffee.png",
-        width: 32,
-        height: 38
-      })
-      marker.lat shop.latitude
-      marker.lng shop.longitude
-    end
-
+    @markers = markers_for_gmaps(@shops)
+    
     if request.xhr?
-      render partial: 'shop_for_index', collection: @shops, as: :shop
+      shops_list = render_to_string partial: 'shop_list'
+      render json: { shops_list: shops_list, markers: @markers }
     else
       respond_with(@shops)
     end
@@ -69,5 +61,18 @@ class ShopsController < ApplicationController
 
   def shop_params
     params.require(:shop).permit(:name, :email, :phone, :user_id, :latitude, :longitude, :street, :city, :postcode, :country)
+  end
+
+  def markers_for_gmaps(shops)
+    Gmaps4rails.build_markers(shops) do |shop, marker|
+      marker.infowindow render_to_string(partial: "shop_for_index", locals: { shop: shop})
+      marker.picture({
+        url: "/assets/coffee.png",
+        width: 32,
+        height: 38
+      })
+      marker.lat shop.latitude
+      marker.lng shop.longitude
+    end
   end
 end
