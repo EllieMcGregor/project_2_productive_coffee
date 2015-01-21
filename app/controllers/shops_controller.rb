@@ -1,7 +1,12 @@
 class ShopsController < ApplicationController
+
+  before_action :authenticate_user!
+
   before_action :set_shop, only: [:show, :edit, :update, :destroy]
 
   respond_to :html
+
+  load_and_authorize_resource
 
   def index
   
@@ -13,10 +18,10 @@ class ShopsController < ApplicationController
       @shops = @q.result(distinct: true).includes(:facilities).page(params[:page])
     else
       @shops = Shop.order(:updated_at).page(params[:page])
-    end
-    
+    end    
+
     @markers = markers_for_gmaps(@shops)
-    
+
     if request.xhr?
       shops_list = render_to_string partial: 'shop_list'
       render json: { shops_list: shops_list, markers: @markers }
