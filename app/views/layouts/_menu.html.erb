@@ -8,30 +8,36 @@
       <ul id="js-navigation-menu" class="navigation-menu show">
         <li class="nav-link"><%= link_to "Home", shops_path %></li>
         <li class="nav-link"><a href="javascript:void(0)">Top Rated Shops</a></li>
-        <li class="nav-link"><a href="http://localhost:3000/shops?utf8=%E2%9C%93&q%5Bname_cont%5D=&q%5Bfacilities_id_eq_any%5D%5B%5D=67&q%5Bfacilities_id_eq_any%5D%5B%5D=68" <%= link_to "Shops with Wifi"%> </a></li>
-        <li class="nav-link more"><a href="javascript:void(0)">More</a>
+        <li class="nav-link more"><a href="javascript:void(0)">Shops with ... </a>
           <ul class="submenu">
-            <li><a href="javascript:void(0)">About Us</a></li>
+            <li><a href="http://localhost:3000/shops?utf8=%E2%9C%93&q%5Bname_cont%5D=&q%5Bfacilities_id_eq_any%5D%5B%5D=67&q%5Bfacilities_id_eq_any%5D%5B%5D=68" <%= link_to "Wifi"%> </a></li>
+            <li><a href="http://localhost:3000/shops?utf8=%E2%9C%93&q%5Bname_cont%5D=&q%5Bfacilities_id_eq_any%5D%5B%5D=70" <%= link_to "Cosy seating"%> </a></li>
+            <li><a href="http://localhost:3000/shops?utf8=%E2%9C%93&q%5Bname_cont%5D=&q%5Bfacilities_id_eq_any%5D%5B%5D=72" <%= link_to "Yummy Food"%> </a></li>
             <li class="more"><a href="javascript:void(0)">Get In Touch!</a>
-              <ul class="submenu">
-                <li><a href="javascript:void(0)">Contact Details</a></li>
-                <!-- <li><a href="javascript:void(0)">An Item</a></li> -->
-              </ul>
             </li>
           </ul>
-        </li>
-      </ul>
-    </nav>
-    <div class="navigation-tools">
-      <div class='login'>
-        <% if current_user %>
+          <li class="nav-link more"><a href="javascript:void(0)">More</a>
+            <ul class="submenu">
+              <li><a href="javascript:void(0)">About Us</a></li>
+              <li class="more"><a href="javascript:void(0)">Get In Touch!</a>
+                <ul class="submenu">
+                  <li><a href="javascript:void(0)">Contact Details</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <div class="navigation-tools">
+        <div class='login'>
+          <% if current_user %>
           <span class="welcome"><%= "Hi, #{current_user.try(:first_name)}!" %></span>
           <%= image_tag current_user.try(:user_image), class: "avatar" %>
           <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "sign-up" %>
-        <% else %>
+          <% else %>
           <%= link_to "Sign In", new_user_session_path, class: "sign-up" %>
-        <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
-  </div>
-</header>
+  </header>
