@@ -12,10 +12,15 @@ body {
     .login {
       .avatar {
         width: 50px;
-        border-radius: 100%
+        border-radius: 100%;
+        margin-top: 0.4em;
+        margin-right:10px;
       }
       .welcome {
-        color: white
+        color: white;
+        float: left;
+        margin-top: 20px;
+        margin-right: 10px;
       }
     }
   }
