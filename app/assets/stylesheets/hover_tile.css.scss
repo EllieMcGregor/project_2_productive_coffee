@@ -32,6 +32,11 @@
   .hover-tile-container {
     height: $hover-tile-height;
     overflow: hidden;
+    position: relative;
+    .rating {
+      position: absolute;
+      right: 4px;
+    }
   }
 
   .hover-tile-container:hover > .hover-tile {
@@ -59,10 +64,6 @@
       margin-bottom: 0.5em;
     }
 
-    .star {
-      display: inline-block;
-      float: right;
-    }
   }
 }
 

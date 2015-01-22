@@ -1,8 +1,11 @@
 <div class="hover-tile-outer" style="background:url('http://lorempixel.com/gray/400/200/city?v=<%= "#{shop.id}" %>') no-repeat;background-size:cover;">
   <div class="hover-tile-container">
+    <div class="rating">
+      <%= rating_for shop, "overall", disable_after_rate: true, imdb_avg: true %>
+    </div> 
     <div class="hover-tile hover-tile-visible"></div>
     <div class="hover-tile hover-tile-hidden">
-      <h2><%= link_to shop.name, shop_path(shop) %> <%= rating_for shop, "overall" %></h2>
+      <h2><%= link_to shop.name, shop_path(shop) %></h2>
       <p><%= shop.description %></p>
     </div>
   </div>
