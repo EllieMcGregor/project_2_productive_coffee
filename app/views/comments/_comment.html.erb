@@ -1,6 +1,7 @@
 <div class="comment">
   <div class="comment-image">
-    <p><%= comment.created_at %> </p>
+    <%= image_tag(comment.user.try :user_image) %>
+
   </div>
   <div class="comment-content">
     <h3><%= comment.title %></h3>
