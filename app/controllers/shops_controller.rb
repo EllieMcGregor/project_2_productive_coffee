@@ -9,7 +9,6 @@ class ShopsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    # binding.pry
     @facilities = Facility.all
 
     @q = Shop.search(params[:q])
