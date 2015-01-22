@@ -14,11 +14,7 @@ class ShopsController < ApplicationController
 
     @q = Shop.search(params[:q])
 
-    if params[:q]
-      @shops = @q.result(distinct: true).includes(:facilities).page(params[:page])
-    else
-      @shops = Shop.order(:updated_at).page(params[:page])
-    end    
+    @shops = @q.result(distinct: true).page(params[:page])
 
     @markers = markers_for_gmaps(@shops)
 
