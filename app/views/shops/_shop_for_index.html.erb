@@ -2,7 +2,7 @@
   <div class="hover-tile-container">
     <div class="hover-tile hover-tile-visible"></div>
     <div class="hover-tile hover-tile-hidden">
-      <h2><%= link_to shop.name, shop_path(shop) %> <span class="rating"><%= rating_for shop, "overall" %></span></h2> 
+      <h2><%= link_to shop.name, shop_path(shop) %> <span class="rating"><%= rating_for shop, "overall", disable_after_rate: false, cancel_hint: 'Cancel your Rating' %></span></h2> 
       <p><%= shop.description %></p>
     </div>
   </div>
