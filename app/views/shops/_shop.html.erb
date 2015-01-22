@@ -35,5 +35,6 @@
   <% end %>
   <%= render partial: '/comments/comment', collection: shop.comments %>
 </div>
-<%= link_to 'Edit Shop', edit_shop_path %>
+  <%= link_to 'Edit', edit_shop_path if can? :edit, @shop %></h3>
+  <%= link_to 'Delete', @shop, method: :delete, data: { confirm: 'Are you sure?' } if can?(:destroy, @shop) %></h3>
 <%= link_to 'Back to Shops', shops_path %>
