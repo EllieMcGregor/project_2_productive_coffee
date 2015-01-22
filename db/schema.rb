@@ -95,6 +95,7 @@ ActiveRecord::Schema.define(version: 20150122172335) do
     t.string   "country"
     t.text     "description"
     t.float    "overall_average_cache", default: 0.0
+    t.string   "shop_image"
   end
 
   add_index "shops", ["user_id"], name: "index_shops_on_user_id", using: :btree
