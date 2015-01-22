@@ -124,10 +124,6 @@ $(function(){
       var summary = 'All';
       var checked = this._checkboxes().filter(':checked');
 
-      if (checked.length > 0) {
-        summary = this._labelsFor(checked).join(', ');
-      }
-
       this._summaryElement.text(summary);
     };
 
