@@ -1,7 +1,7 @@
 <div class="shop" style="border-bottom:1px solid black;margin-bottom:150px">
   <h1><%= link_to shop.name, shop_path(shop) %></h1>
   <div><%= rating_for shop, "overall" %></div>
-    <p><strong></strong><%= link_to image_tag(@shop.shop_image.thumb.url), @shop.shop_image.detail.url %></p>
+    <p><img src="http://lorempixel.com/gray/400/200/city?v=<%= "#{shop.id}" %>') no-repeat;background-size:cover;"></p>
   <p><%= shop.description %></p>
   <p><strong>Email: </strong><%= shop.email %></p>
   <p><strong>Phone: </strong><%= shop.phone %></p>
