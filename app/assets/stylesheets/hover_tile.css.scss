@@ -4,6 +4,10 @@
   $base-line-height: 1.5em !default;
   $medium-screen: em(640) !default;
   
+  h2 {
+    font-weight: bold;
+  }
+
   h4 {
     margin: 0;
   }
@@ -35,7 +39,7 @@
   }
 
   .hover-tile-container:hover > .hover-tile {
-    @include transform(translate(0, -62%));
+    @include transform(translate(0, -81%));
   }
 
   .hover-tile {
@@ -48,7 +52,7 @@
   }
 
   .hover-tile-hidden {
-    background: transparentize(#FFF, 0.5);
+    background: transparentize(#FFF, .25);
     margin-top: -50px;
     padding-top: 10px;
     p {
