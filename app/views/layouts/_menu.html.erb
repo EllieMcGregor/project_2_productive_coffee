@@ -1,13 +1,11 @@
 <header class="navigation" role="banner">
   <div class="navigation-wrapper">
-      <%= link_to image_tag("http://i992.photobucket.com/albums/af42/webtreatsetc/Business%20Food%20Beverage%20Sports%20Hobbies%20Transport/056160-blue-chrome-rain-icon-food-beverage-coffee-tea.png", class: "logo"), shops_path %>
-      <!-- <img class="logo" src="" alt="Logo Image"> -->
-    </a>
+    <%= link_to image_tag("http://i992.photobucket.com/albums/af42/webtreatsetc/Business%20Food%20Beverage%20Sports%20Hobbies%20Transport/056160-blue-chrome-rain-icon-food-beverage-coffee-tea.png", class: "logo"), shops_path %>
     <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">MENU</a>
     <nav role="navigation">
       <ul id="js-navigation-menu" class="navigation-menu show">
         <li class="nav-link"><%= link_to "Home", shops_path %></li>
-        <li class="nav-link"><a href="javascript:void(0)">Top Rated Shops</a></li>
+        <li class="nav-link"><%= link_to "Top Rated Shops", "/shops?overall_average_cache+desc&utf8=%E2%9C%93" %></li>
         <li class="nav-link more"><a href="javascript:void(0)">Shops with ... </a>
           <ul class="submenu">
             <li> <%= link_to "Wifi", "http://localhost:3000/shops?utf8=%E2%9C%93&q%5Bname_cont%5D=&q%5Bfacilities_id_eq_any%5D%5B%5D=73" %></li>
@@ -30,11 +28,11 @@
       <div class="navigation-tools">
         <div class='login'>
           <% if current_user %>
-          <span class="welcome"><%= "Hi, #{current_user.try(:first_name)}!" %></span>
-          <%= image_tag current_user.try(:user_image), class: "avatar" %>
-          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "sign-up" %>
+            <span class="welcome"><%= "Hi, #{current_user.try(:first_name)}!" %></span>
+            <%= image_tag current_user.try(:user_image), class: "avatar" %>
+            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "sign-up" %>
           <% else %>
-          <%= link_to "Sign In", new_user_session_path, class: "sign-up" %>
+            <%= link_to "Sign In", new_user_session_path, class: "sign-up" %>
           <% end %>
         </div>
       </div>
