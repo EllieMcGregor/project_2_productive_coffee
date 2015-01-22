@@ -26,7 +26,7 @@ body {
   }
   main {
     @include outer-container;
-    $mobile: new-breakpoint(max-width 500px 6);
+    $mobile: new-breakpoint(max-width 860px 6);
     margin-top: 61px;
     #fixed_sidebar {
       @include span-columns(6);
@@ -64,10 +64,18 @@ body {
       @include span-columns(6);
       @include media($mobile) {
         @include span-columns(3);
+        margin-top: 50px
       }
       .result_info {
+        @include media($mobile) {
+          display: none
+        }
         margin-bottom: 20px;
-      }
+        a.sort_link {
+          float: right;
+          margin-left: 15px;
+        }
+      } 
       #shops_list {
         margin-top: 25px
       }
