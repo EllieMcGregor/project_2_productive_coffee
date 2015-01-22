@@ -1,6 +1,11 @@
 <div class="shop" style="border-bottom:1px solid black;margin-bottom:150px">
   <h1><%= link_to shop.name, shop_path(shop) %></h1>
   <div><%= rating_for shop, "overall" %></div>
+  <% if shop.shop_image.detail.url %>
+    <p class="url-image"><%= link_to image_tag(shop.shop_image.detail.url), shop.shop_image.url %></p>
+    <% else %>
+      <p><img src="http://lorempixel.com/gray/400/200/city?v=<%= "#{shop.id}" %>') no-repeat;background-size:cover;"></p>
+  <% end %>
   <p><%= shop.description %></p>
   <p><strong>Email: </strong><%= shop.email %></p>
   <p><strong>Phone: </strong><%= shop.phone %></p>
@@ -10,17 +15,11 @@
   <p><strong>Country: </strong><%= shop.country %></p>
   <p><strong>Latitude: </strong><%= shop.latitude %></p>
   <p><strong>Longitude: </strong><%= shop.longitude %></p>
-  <p><strong></strong><%= link_to image_tag(@shop.shop_image.thumb.url), @shop.shop_image.detail.url %></p>
- 
-  <p><strong>Facilities: </strong>
-    <% shop.facilities.each do |facility| %>
-   <%= image_tag(facility.facility_image,:width => 100, :height => 100, :crop => :fill) %>
-   
-  <% end %>
+  <p><strong>Facilities: </strong><% shop.facilities.each do |facility| %>
+    <%= facility.name %>
+    <% end %>
 
-  <img src="https://maps.googleapis.com/maps/api/staticmap?center=<%= shop.latitude %>,<%= shop.longitude %>&zoom=13&size=600x300&maptype=roadmap
-&markers=color:blue%7C<%= shop.latitude %>,<%= shop.longitude %>" alt="">
-  
+ 
   <hr>
   
   <h2>Comments <span>(<%= pluralize(shop.comments.count, "comment") %>)</span></h2>
