@@ -39,6 +39,9 @@ body {
         .gm-style-iw {
           width:250px !important;
           height:auto !important;
+          h2 {
+            margin-bottom: 0
+          }
         }
       }
       .search-tools {
@@ -62,11 +65,15 @@ body {
     }
     #results {
       float: right !important;
+      padding-left: 25px;
       @include span-columns(6);
       @include media($mobile) {
         @include span-columns(3);
       }
-      @include omega();
+      // @include omega();
+      #shops_list {
+        margin-top: 25px
+      }
     }
   }
 }
