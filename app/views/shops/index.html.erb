@@ -1,31 +1,14 @@
-<h1>Shops#index</h1>
+<div id="fixed_sidebar">
+  <%= render partial: "search" %>
+  <div id="map-canvas"></div>
+</div>
 
-<div id="map-canvas"></div>
-
-<%= link_to 'Back', shops_path  %>
-
-<%= search_form_for @q, remote: true do |f| %>
-<p>
-  <%= f.text_field :name_cont %>
-  <div id="facilities">
-    <% @facilities.each do |facility| %>
-      <%= check_box_tag('q[facilities_id_eq_any][]', facility.id, params[:q] && params[:q][:facilities_id_eq_any] && params[:q][:facilities_id_eq_any].include?(facility.id.to_s) ) %>
-      <%= facility.name %>
-    <% end %>
+<div id="results">
+  <div id="shops_list">
+    <%= page_entries_info @shops %>
+    <%= sort_link(@q, :name, 'Sort By Shop Name', default_order: :desc, hide_indicator: true) %>
+    <%= render partial: 'shop_list' %>
   </div>
-</p>
-
-
-
-<p>
-  <%= f.submit %>  
-</p>
-<% end %>
-
-<%= link_to 'Add New Shop', new_shop_path %>
-
-<div id="shops_list">
-  <%= render partial: 'shop_list' %>
 </div>
 
 <script>
@@ -34,17 +17,37 @@
 
     var handler = Gmaps.build('Google');
     handler.buildMap({ provider: {}, internal: {id: 'map-canvas'}}, function(){
-      display_markers(markers_json);
+      
+      var markers;
+      markers = generate_marker_array(markers_json);
+      map_and_fit_to_bounds(markers);
 
       $('#shop_search').on('ajax:success', function(event, data, status, xhr) {
         handler.removeMarkers(markers);
-        display_markers(data.markers);
+        markers_json = data.markers;
+        markers = generate_marker_array(markers_json);
+        map_and_fit_to_bounds(markers);
+      });
+
+      google.maps.event.addDomListener(map, 'idle', function() {
+        map_and_fit_to_bounds(markers);
+      });
+
+      google.maps.event.addDomListener(window, 'resize', function() {
+        map_and_fit_to_bounds(markers);
       });
     });
 
-    function display_markers(marker_data){
-      markers = handler.addMarkers(marker_data);
-      handler.bounds.extendWith(markers);
+    function generate_marker_array(marker_data){
+      return handler.addMarkers(marker_data);
+    }
+
+    function remove_markers(){
+      handler.removeMarkers(marker);
+    }
+
+    function map_and_fit_to_bounds(marker_data){
+      handler.bounds.extendWith(marker_data);
       handler.fitMapToBounds();
     }
 

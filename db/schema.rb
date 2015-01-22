@@ -87,7 +87,6 @@ ActiveRecord::Schema.define(version: 20150121105426) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "shop_image"
     t.float    "latitude"
     t.float    "longitude"
     t.string   "street"

@@ -17,6 +17,9 @@ gem 'jquery-turbolinks'
 
 gem 'gmaps4rails'
 
+gem 'bourbon'
+gem 'neat'
+
 group :development, :test do
   gem 'faker', '~> 1.4.3'
   gem 'pry-rails'

@@ -1,0 +1,19 @@
+<div class="search-tools">
+  <%= search_form_for @q, remote: true do |f| %>
+    <div class="filter name">
+      <%= f.text_field :name_cont, placeholder: "Shop Name" %>
+    </div>
+    <div id="facilities" class="filter">
+      <div>
+        <ol>
+          <% @facilities.each do |facility| %>
+            <li>
+              <%= check_box_tag('q[facilities_id_eq_any][]', facility.id, params[:q] && params[:q][:facilities_id_eq_any] && params[:q][:facilities_id_eq_any].include?(facility.id.to_s), id: "#{facility.name.gsub(" ", "_")}" ) %>
+              <%= label_tag facility.name, facility.name %>
+            </li>
+          <% end %>
+        </ol>
+      </div>
+    </div>
+  <% end %>
+</div>
