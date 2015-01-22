@@ -112,7 +112,7 @@ $(function(){
     };
 
     Filter.prototype._updateSummary = function() {
-      var summary = 'All';
+      var summary = 'Facilities';
       var checked = this._checkboxes().filter(':checked');
 
       this._summaryElement.text(summary);
