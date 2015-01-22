@@ -27,9 +27,9 @@
         map_and_fit_to_bounds(markers);
       });
 
-      google.maps.event.addDomListener(handler.getMap(), 'idle', function() {
-        map_and_fit_to_bounds(markers);
-      });
+      // google.maps.event.addDomListener(handler.getMap(), 'idle', function() {
+      //   map_and_fit_to_bounds(markers);
+      // });
 
       google.maps.event.addDomListener(window, 'resize', function() {
         map_and_fit_to_bounds(markers);
