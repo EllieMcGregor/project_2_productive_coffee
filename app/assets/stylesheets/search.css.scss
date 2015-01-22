@@ -17,21 +17,17 @@
 
   li {
     font-size: 0.8em;
-    line-height: normal;
+    line-height: 1.5em;
     list-style: none;
-    width: 200px;
-    float: left;
   }
 
   label {
-    display: inline-block;
+    display: block;
     font-weight: bold;
     margin-bottom: $base-spacing / 4;
   }
 
-  .name input {
-    height: 55px
-  }
+
   //////////////////////////////////////////////////////////////////////////////////
 
   $search-tools-border-color: $base-border-color;
@@ -75,7 +71,7 @@
       }
     }
 
-    ul {
+    ol {
       margin-top: 1em;
 
       label {
