@@ -2,7 +2,7 @@
   <%= f.label :title %>
   <%= f.text_field :title %>
   <%= f.label :comment %>
-  <%= f.text_area :comment %>
+  <%= f.text_area :comment, placeholder: "Describe your time at #{@shop.name}" %>
 </div>
 
 <div class="actions">
