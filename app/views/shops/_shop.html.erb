@@ -1,8 +1,8 @@
 <div class="shop" style="border-bottom:1px solid black;margin-bottom:150px">
   <h1><%= link_to shop.name, shop_path(shop) %></h1>
-  <div><%= rating_for shop, "overall" %></div>
+  <div><%= rating_for shop, "overall", disable_after_rate: false, cancel_hint: 'Cancel your Rating' %></div>
   <% if shop.shop_image.detail.url %>
-    <p class="url-image"><%= link_to image_tag(shop.shop_image.detail.url), shop.shop_image.url %></p>
+      <p class="url-image"><%= link_to image_tag(shop.shop_image.detail.url), shop.shop_image.url %></p>
     <% else %>
       <p><img src="http://lorempixel.com/gray/400/200/city?v=<%= "#{shop.id}" %>') no-repeat;background-size:cover;"></p>
   <% end %>
@@ -25,7 +25,7 @@
   <h2>Comments <span>(<%= pluralize(shop.comments.count, "comment") %>)</span></h2>
   <h4>Write a Comment:</h4>
   <%= form_for([shop, Comment.new]) do |f| %>
-  <%= render partial: '/comments/form', locals: { f: f } %>
+    <%= render partial: '/comments/form', locals: { f: f } %>
   <% end %>
   <%= render partial: '/comments/comment', collection: shop.comments %>
 </div>

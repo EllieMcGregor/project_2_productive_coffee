@@ -1,4 +1,9 @@
 class Shop < ActiveRecord::Base
+
+  after_save :update_overall_average_cache
+
+  default_scope { order('shops.overall_average_cache desc') }
+
   mount_uploader :shop_image, ShopImageUploader
   acts_as_commentable
   ratyrate_rateable "overall"
@@ -16,5 +21,14 @@ class Shop < ActiveRecord::Base
   
   def address
     [street, city, postcode, country].compact.join(', ')
+  end
+
+  def rating
+    overall_average.try(:avg).to_f
+  end
+
+  private
+  def update_overall_average_cache
+    update_column :overall_average_cache, rating
   end
 end
