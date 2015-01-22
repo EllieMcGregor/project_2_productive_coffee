@@ -28,11 +28,11 @@
       <div class="navigation-tools">
         <div class='login'>
           <% if current_user %>
-          <span class="welcome"><%= "Hi, #{current_user.try(:first_name)}!" %></span>
-          <%= image_tag current_user.try(:user_image), class: "avatar" %>
-          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "sign-up" %>
+            <span class="welcome"><%= "Hi, #{current_user.try(:first_name)}!" %></span>
+            <%= image_tag current_user.try(:user_image), class: "avatar" %>
+            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "sign-up" %>
           <% else %>
-          <%= link_to "Sign In", new_user_session_path, class: "sign-up" %>
+            <%= link_to "Sign In", new_user_session_path, class: "sign-up" %>
           <% end %>
         </div>
       </div>
