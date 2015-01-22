@@ -8,8 +8,11 @@
   <p><strong>City: </strong><%= shop.city %></p>
   <p><strong>Postcode: </strong><%= shop.postcode %></p>
   <p><strong>Country: </strong><%= shop.country %></p>
+  
+<div class="display_none"> 
   <p><strong>Latitude: </strong><%= shop.latitude %></p>
   <p><strong>Longitude: </strong><%= shop.longitude %></p>
+</div>
   <p><strong></strong><%= link_to image_tag(@shop.shop_image.thumb.url), @shop.shop_image.detail.url %></p>
  
   <p><strong>Facilities: </strong>
