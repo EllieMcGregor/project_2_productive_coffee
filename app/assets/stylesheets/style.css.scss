@@ -3,6 +3,8 @@ html, body {
 }
 
 body {
+  $large-screen: em(860) !default;
+  $horizontal-bar-mode: $large-screen;
   header {
     position: fixed;
     top: 0;
@@ -19,12 +21,13 @@ body {
   }
   main {
     @include outer-container;
-    $mobile: new-breakpoint(max-width 500px 4);
+    $mobile: new-breakpoint(max-width 500px 6);
     margin-top: 61px;
-    #map {
+    #fixed_sidebar {
       @include span-columns(6);
       @include media($mobile) {
-      @include span-columns(3);
+        @include span-columns(3);
+        top: 122px;
       }
       @include omega();
       height: 100%;
@@ -48,19 +51,6 @@ body {
         border: none;
         border-bottom: 1px solid #DDD;
         border-radius: 0;
-        .filter > div {
-          padding: 0.3em 0.3em;
-        }
-        .name {
-          @include span-columns(4);
-        }
-        .trigger {
-          @include span-columns(4);
-          input {
-            width: 100%;
-            margin-top: 26px;
-          }
-        }
       }
     }
     #results {
@@ -70,7 +60,6 @@ body {
       @include media($mobile) {
         @include span-columns(3);
       }
-      // @include omega();
       #shops_list {
         margin-top: 25px
       }
