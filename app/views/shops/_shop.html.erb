@@ -1,6 +1,6 @@
 <div class="shop" style="border-bottom:1px solid black;margin-bottom:150px">
-  <div><%= rating_for shop, "overall" %></div>
   <h1><%= link_to shop.name, shop_path(shop) %></h1>
+  <div><%= rating_for shop, "overall" %></div>
   <p><%= shop.description %></p>
   <p><strong>Email: </strong><%= shop.email %></p>
   <p><strong>Phone: </strong><%= shop.phone %></p>

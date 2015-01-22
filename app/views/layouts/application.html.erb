@@ -10,14 +10,11 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class="type-system-sans">
   
   <%= render partial: "layouts/menu" %>
   <main>
-    <div class="flash">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-    </div>
+    <%= render partial: "layouts/flash" if notice || alert %>
     <%= yield %>
   </main>    
 

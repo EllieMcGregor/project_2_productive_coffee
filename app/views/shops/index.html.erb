@@ -1,12 +1,7 @@
 <div id="map">
-  <div id="map-canvas"></div>
-</div>
-<div id="results">
-  <%= link_to 'Back', shops_path  %>
-  
   <div class="search-tools">
     <%= search_form_for @q, remote: true do |f| %>
-      <div class="filter">
+      <div class="name">
         <label>Shop Name</label>
         <div>
           <%= f.text_field :name_cont %>
@@ -18,8 +13,8 @@
           <ol>
             <% @facilities.each do |facility| %>
               <li>
-                <%= check_box_tag('q[facilities_id_eq_any][]', facility.id, params[:q] && params[:q][:facilities_id_eq_any] && params[:q][:facilities_id_eq_any].include?(facility.id.to_s) ) %>
-                <%= label_tag facility.name %>
+                <%= check_box_tag('q[facilities_id_eq_any][]', facility.id, params[:q] && params[:q][:facilities_id_eq_any] && params[:q][:facilities_id_eq_any].include?(facility.id.to_s), id: "#{facility.name.gsub(" ", "_")}" ) %>
+                <%= label_tag facility.name, facility.name %>
               </li>
             <% end %>
           </ol>
@@ -30,9 +25,10 @@
       </div>
     <% end %>
   </div>
+  <div id="map-canvas"></div>
+</div>
 
-  <%= link_to 'Add New Shop', new_shop_path %>
-
+<div id="results">
   <div id="shops_list">
     <%= render partial: 'shop_list' %>
   </div>
@@ -44,17 +40,37 @@
 
     var handler = Gmaps.build('Google');
     handler.buildMap({ provider: {}, internal: {id: 'map-canvas'}}, function(){
-      display_markers(markers_json);
+      
+      var markers;
+      markers = generate_marker_array(markers_json);
+      map_and_fit_to_bounds(markers);
 
       $('#shop_search').on('ajax:success', function(event, data, status, xhr) {
         handler.removeMarkers(markers);
-        display_markers(data.markers);
+        markers_json = data.markers;
+        markers = generate_marker_array(markers_json);
+        map_and_fit_to_bounds(markers);
+      });
+
+      google.maps.event.addDomListener(map, 'idle', function() {
+        map_and_fit_to_bounds(markers);
+      });
+
+      google.maps.event.addDomListener(window, 'resize', function() {
+        map_and_fit_to_bounds(markers);
       });
     });
 
-    function display_markers(marker_data){
-      markers = handler.addMarkers(marker_data);
-      handler.bounds.extendWith(markers);
+    function generate_marker_array(marker_data){
+      return handler.addMarkers(marker_data);
+    }
+
+    function remove_markers(){
+      handler.removeMarkers(marker);
+    }
+
+    function map_and_fit_to_bounds(marker_data){
+      handler.bounds.extendWith(marker_data);
       handler.fitMapToBounds();
     }
 
