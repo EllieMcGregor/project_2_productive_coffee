@@ -5,7 +5,7 @@ body {
     #map {
       @include span-columns(6);
       @include media($mobile) {
-        @include span-columns(3);
+      @include span-columns(3);
       }
     }
     #results {

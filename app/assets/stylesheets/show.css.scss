@@ -1,19 +1,20 @@
-#form_container {
+#show_container {
   @include span-columns(6);
   @include shift(3);
+  
   h1 {
-    padding-bottom: 40px;
-    padding-top: 40px;  
+    padding-bottom: 20px;
+    padding-top: 20px;  
   }
-
-  h3 {
-    padding-bottom: 40px;
-    padding-top: 50px; 
-  }
-
+  
   a {
-    padding-bottom: 40px;
-    padding-top: 50px; 
+   padding-bottom: 40px;
+   padding-top: 50px; 
+  }
+
+  img {
+    padding: 10px 10px 10px 10px
+
   }
 
   label{
