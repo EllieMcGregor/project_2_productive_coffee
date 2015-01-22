@@ -48,8 +48,6 @@ $(function(){
   });
 
 
-
-
   var Filter = (function() {
     function Filter(element) {
       this._element = $(element);
