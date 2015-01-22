@@ -4,7 +4,6 @@
   $base-line-height: 1.5em !default;
   $medium-screen: em(640) !default;
   $mobile: new-breakpoint(max-width 860px 6);
-
   clear:both;
   h2 {
     font-weight: bold;
@@ -25,7 +24,7 @@
   background-size: cover;
   background-color: beige;
   border: 1px solid $base-border-color;
-  cursor: pointer;
+  cursor: auto;
   height: $hover-tile-height;
   margin-bottom: $base-line-height;
   margin-bottom: 30px;
