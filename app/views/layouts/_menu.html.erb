@@ -1,7 +1,7 @@
 <header class="navigation" role="banner">
   <div class="navigation-wrapper">
-    <a href="javascript:void(0)" class="logo">
-      <img src="http://i992.photobucket.com/albums/af42/webtreatsetc/Business%20Food%20Beverage%20Sports%20Hobbies%20Transport/056160-blue-chrome-rain-icon-food-beverage-coffee-tea.png" alt="Logo Image">
+      <%= link_to image_tag("http://i992.photobucket.com/albums/af42/webtreatsetc/Business%20Food%20Beverage%20Sports%20Hobbies%20Transport/056160-blue-chrome-rain-icon-food-beverage-coffee-tea.png", class: "logo"), shops_path %>
+      <!-- <img class="logo" src="" alt="Logo Image"> -->
     </a>
     <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">MENU</a>
     <nav role="navigation">
@@ -10,9 +10,9 @@
         <li class="nav-link"><a href="javascript:void(0)">Top Rated Shops</a></li>
         <li class="nav-link more"><a href="javascript:void(0)">Shops with ... </a>
           <ul class="submenu">
-            <li><a href="http://localhost:3000/shops?utf8=%E2%9C%93&q%5Bname_cont%5D=&q%5Bfacilities_id_eq_any%5D%5B%5D=67&q%5Bfacilities_id_eq_any%5D%5B%5D=68" <%= link_to "Wifi"%> </a></li>
-            <li><a href="http://localhost:3000/shops?utf8=%E2%9C%93&q%5Bname_cont%5D=&q%5Bfacilities_id_eq_any%5D%5B%5D=70" <%= link_to "Cosy seating"%> </a></li>
-            <li><a href="http://localhost:3000/shops?utf8=%E2%9C%93&q%5Bname_cont%5D=&q%5Bfacilities_id_eq_any%5D%5B%5D=72" <%= link_to "Yummy Food"%> </a></li>
+            <li> <%= link_to "Wifi", "http://localhost:3000/shops?utf8=%E2%9C%93&q%5Bname_cont%5D=&q%5Bfacilities_id_eq_any%5D%5B%5D=67&q%5Bfacilities_id_eq_any%5D%5B%5D=68" %></li>
+            <li><%= link_to "Cosy seating", "http://localhost:3000/shops?utf8=%E2%9C%93&q%5Bname_cont%5D=&q%5Bfacilities_id_eq_any%5D%5B%5D=70" %></li>
+            <li><%= link_to "Yummy Food", "http://localhost:3000/shops?utf8=%E2%9C%93&q%5Bname_cont%5D=&q%5Bfacilities_id_eq_any%5D%5B%5D=72" %></li>
             </li>
           </ul>
           <li class="nav-link more"><a href="javascript:void(0)">More</a>
