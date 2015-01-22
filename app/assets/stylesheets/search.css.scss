@@ -17,25 +17,26 @@
 
   li {
     font-size: 0.8em;
-    line-height: normal;
+    line-height: 1.5em;
     list-style: none;
-    width: 200px;
-    float: left;
   }
 
   label {
-    display: inline-block;
+    display: block;
     font-weight: bold;
     margin-bottom: $base-spacing / 4;
   }
 
   .name input {
-    height: 55px
+    height: 42px;
+    margin-bottom: 0;
   }
+
   //////////////////////////////////////////////////////////////////////////////////
 
   $search-tools-border-color: $base-border-color;
   $search-tools-background: lighten($search-tools-border-color, 10%);
+  $horizontal-bar-mode: $large-screen;
 
   @include clearfix;
   background: $search-tools-background;
@@ -47,7 +48,7 @@
     margin-bottom: 1em;
 
     @include media($large-screen) {
-      @include span-columns(4);
+      @include span-columns(6);
       margin-bottom: 0;
     }
 
@@ -75,7 +76,7 @@
       }
     }
 
-    ul {
+    ol {
       margin-top: 1em;
 
       label {
