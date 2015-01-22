@@ -60,6 +60,9 @@ body {
       @include media($mobile) {
         @include span-columns(3);
       }
+      .result_info {
+        margin-bottom: 20px;
+      }
       #shops_list {
         margin-top: 25px
       }

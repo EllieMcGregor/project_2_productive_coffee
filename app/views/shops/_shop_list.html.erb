@@ -1,5 +1,9 @@
-<%= page_entries_info @shops %>
-<%= sort_link(@q, :name, 'Sort By Shop Name', default_order: :desc, hide_indicator: true) %>
-<%= sort_link(@q, :overall_average_cache, 'Rating', default_order: :asc, hide_indicator: true) %>
+<div class="result_info">
+  <%= page_entries_info @shops %>
+  <%= sort_link(@q, :name, 'Sort By Shop Name', default_order: :desc, hide_indicator: true) %>
+  <%= sort_link(@q, :overall_average_cache, 'Rating', default_order: :asc, hide_indicator: true) %>
+</div>
+
 <%= render partial: 'shop_for_index', collection: @shops, as: :shop %>  
+
 <%= paginate @shops %>
