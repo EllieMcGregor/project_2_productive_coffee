@@ -79,11 +79,6 @@ $(function(){
         attr('data-role', 'summary').
         prependTo(this._optionsContainer);
 
-      this._clearSelectionButton = $('<button></button>').
-        text('Clear').
-        attr('type', 'button').
-        insertAfter(this._summaryElement);
-
       this._optionsContainer.addClass(this.constructor.hideOptionsClass);
       this._updateSummary();
     };
@@ -93,10 +88,6 @@ $(function(){
 
       this._summaryElement.click(function() {
         self._toggleOptions();
-      });
-
-      this._clearSelectionButton.click(function() {
-        self._clearSelection();
       });
 
       this._checkboxes().change(function() {
@@ -121,12 +112,8 @@ $(function(){
     };
 
     Filter.prototype._updateSummary = function() {
-      var summary = 'All';
+      var summary = 'Facilities';
       var checked = this._checkboxes().filter(':checked');
-
-      if (checked.length > 0) {
-        summary = this._labelsFor(checked).join(', ');
-      }
 
       this._summaryElement.text(summary);
     };
