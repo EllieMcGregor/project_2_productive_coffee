@@ -13,15 +13,19 @@
   <p><strong>City: </strong><%= shop.city %></p>
   <p><strong>Postcode: </strong><%= shop.postcode %></p>
   <p><strong>Country: </strong><%= shop.country %></p>
+  
+<div class="display_none"> 
   <p><strong>Latitude: </strong><%= shop.latitude %></p>
   <p><strong>Longitude: </strong><%= shop.longitude %></p>
+
   <p><strong>Facilities: </strong><% shop.facilities.each do |facility| %>
     <%= facility.name %>
     <% end %>
+</div>
 
  <img src="https://maps.googleapis.com/maps/api/staticmap?center=<%= shop.latitude %>,<%= shop.longitude %>&zoom=13&size=600x300&maptype=roadmap
  &markers=color:blue%7C<%= shop.latitude %>,<%= shop.longitude %>" alt="">
-   
+
   <hr>
   
   <h2>Comments <span>(<%= pluralize(shop.comments.count, "comment") %>)</span></h2>

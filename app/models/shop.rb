@@ -8,6 +8,10 @@ class Shop < ActiveRecord::Base
   acts_as_commentable
   ratyrate_rateable "overall"
 
+  geocoded_by :postcode, latitude: :latitude, longitude: :longitude
+  after_validation :geocode, :if => :postcode_changed?
+
+
   belongs_to :user
   has_many :shops_facility, dependent: :destroy
   has_many :facilities, through: :shops_facility
