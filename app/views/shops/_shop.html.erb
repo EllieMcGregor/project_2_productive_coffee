@@ -2,6 +2,7 @@
   <h1><%= link_to shop.name, shop_path(shop) %></h1>
   <div><%= rating_for shop, "overall" %></div>
     <p><img src="http://lorempixel.com/gray/400/200/city?v=<%= "#{shop.id}" %>') no-repeat;background-size:cover;"></p>
+    <p class="url-image"><%= link_to image_tag(@shop.shop_image.detail.url), @shop.shop_image.url %></p>
   <p><%= shop.description %></p>
   <p><strong>Email: </strong><%= shop.email %></p>
   <p><strong>Phone: </strong><%= shop.phone %></p>
@@ -14,10 +15,8 @@
   <p><strong>Facilities: </strong><% shop.facilities.each do |facility| %>
     <%= facility.name %>
     <% end %>
-    
-  <img src="https://maps.googleapis.com/maps/api/staticmap?center=<%= shop.latitude %>,<%= shop.longitude %>&zoom=13&size=600x300&maptype=roadmap
-&markers=color:blue%7C<%= shop.latitude %>,<%= shop.longitude %>" alt="">
-  
+
+ 
   <hr>
   
   <h2>Comments <span>(<%= pluralize(shop.comments.count, "comment") %>)</span></h2>

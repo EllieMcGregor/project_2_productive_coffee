@@ -11,11 +11,14 @@
    padding-bottom: 40px;
    padding-top: 50px; 
   }
-
-  img {
-    padding: 10px 10px 10px 10px
-
+  .url-image img {
+    width: 420px;
+    height: 214px;
   }
+  img {
+    padding: 10px 10px 10px 10px;
+  }
+  
 
   label{
     @include span-columns(2 of 6);
