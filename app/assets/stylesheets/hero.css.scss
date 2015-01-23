@@ -1,0 +1,100 @@
+.hero {  
+  
+  video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    background: url(/assets/coffee.jpg) no-repeat;
+    background-size: cover;
+    -webkit-transition: 1s opacity;
+    transition: 1s opacity;
+  }
+
+  ///////////////////////////////////////////////////////////////////////////////////
+  $base-border-radius: 3px !default;
+  $base-accent-color: #477DCA !default;
+  $large-screen: em(860) !default;
+  //////////////////////////////////////////////////////////////////////////////////
+
+  $hero-background-top: #7F99BE; 
+  $hero-background-bottom: #20392B;
+  $hero-color: white;
+  $gradient-angle: 10deg;
+
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-bottom: 3em;
+  
+  #form_container {
+    background-color: rgba(255, 255, 255, 0.38);
+    border-radius: 10px;
+    padding: 20px;
+  }
+
+  .hero-logo img {
+    height: 4em;
+    margin-bottom: 1em;
+  }
+
+  .hero-inner {
+    @include outer-container;
+    @include clearfix;
+    color: $hero-color;
+    margin: auto;
+    padding: 3.5em;
+    text-align: center;
+
+    .hero-copy {
+      text-align: center;
+      
+      h1 {
+        font-size: 1.6em;
+        margin-bottom: 0.5em;
+
+        @include media($large-screen) {
+          font-size: 1.8em;
+        }
+      }
+
+      p {
+        font-weight: 200;
+        line-height: 1.4em;
+        margin: 0 auto 3em auto; 
+
+        @include media($large-screen) {
+          font-size: 1.1em;
+          max-width: 40%;
+        }
+      }
+    }
+
+    button {
+      @include button(flat, $base-accent-color);
+      padding: 0.7em 1em;
+    }
+
+    a.google {
+      @include span-columns(4 of 6);
+      @include shift(2);
+      background: url("/assets/google_login/base.png") no-repeat;
+      background-size: 285px 55px;
+      display: block;
+      text-indent: -999999px;
+      height: 55px;
+    }
+    a.google:hover {
+      background: url("/assets/google_login/hover.png") no-repeat;
+      background-size: 215px 40px;
+    }
+    a.google:active {
+      background: url("/assets/google_login/click.png") no-repeat;
+      background-size: 215px 40px;
+    }
+  }
+}

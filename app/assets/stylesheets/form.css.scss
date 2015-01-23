@@ -15,12 +15,6 @@
     padding-top: 50px; 
   }
 
-  a {
-
-    padding-bottom: 40px;
-    padding-top: 50px; 
-  }
-
   label{
     @include span-columns(2 of 6);
     margin-bottom: 20px;
