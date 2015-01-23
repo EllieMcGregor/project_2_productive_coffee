@@ -1,10 +1,12 @@
+$mobile: new-breakpoint(max-width 860px 6);
+$large-screen: em(860) !default;
+$horizontal-bar-mode: $large-screen;
+
 html, body {
     height:100%;
 }
 
 body {
-  $large-screen: em(860) !default;
-  $horizontal-bar-mode: $large-screen;
   header {
     position: fixed;
     top: 0;
@@ -17,6 +19,9 @@ body {
         margin-right:10px;
       }
       .welcome {
+        @include media($mobile) {
+          display: none
+        }
         color: white;
         float: left;
         margin-top: 20px;
@@ -26,7 +31,6 @@ body {
   }
   main {
     @include outer-container;
-    $mobile: new-breakpoint(max-width 860px 6);
     margin-top: 61px;
     #fixed_sidebar {
       @include span-columns(6);
