@@ -23,6 +23,14 @@ class Shop < ActiveRecord::Base
   geocoded_by :address
   reverse_geocoded_by :latitude, :longitude
   
+  def photo
+    if shop_image.url
+      "background:url(#{shop_image.url}) no-repeat;background-size:cover;"
+    else
+      "background:url('http://lorempixel.com/gray/400/200/city?v=#{id}') no-repeat;background-size:cover;"
+    end
+  end
+
   def address
     [street, city, postcode, country].compact.join(', ')
   end
