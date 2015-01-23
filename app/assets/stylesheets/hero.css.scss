@@ -35,6 +35,9 @@
     background-color: rgba(255, 255, 255, 0.38);
     border-radius: 10px;
     padding: 20px;
+    label {
+      color: #2E5286
+    }
   }
 
   .hero-logo img {
@@ -90,11 +93,11 @@
     }
     a.google:hover {
       background: url("/assets/google_login/hover.png") no-repeat;
-      background-size: 215px 40px;
+      background-size: 285px 55px;
     }
     a.google:active {
       background: url("/assets/google_login/click.png") no-repeat;
-      background-size: 215px 40px;
+      background-size: 285px 55px;
     }
   }
 }
