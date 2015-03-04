@@ -20,15 +20,14 @@ gem 'gmaps4rails'
 gem 'bourbon'
 gem 'neat'
 
-group :development, :test do
-  gem 'faker', '~> 1.4.3'
-  gem 'pry-rails'
-  gem 'pry-byebug'
-  gem 'pry-stack_explorer'
-  gem 'binding_of_caller'
-  gem 'better_errors'
-  gem 'meta_request'
-end
+
+gem 'faker', '~> 1.4.3'
+gem 'pry-rails'
+gem 'pry-byebug'
+gem 'pry-stack_explorer'
+gem 'binding_of_caller'
+gem 'better_errors'
+gem 'meta_request'
 
 group :production do
   gem 'rails_log_stdout',           github: 'heroku/rails_log_stdout'
